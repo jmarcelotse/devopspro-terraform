@@ -10,11 +10,11 @@ O bloco `provider` é usado para configurar o provedor de nuvem ou serviço que 
 ## Exemplo de Bloco provider:
 
 hcl
-``
+```
 provider "aws" {
   region = "us-west-2"
 }
-``
+```
 ### Explicação:
 - **aws**: O provedor que está sendo configurado, neste caso, AWS.
 - **region**: A região da AWS onde os recursos serão criados. Este é um parâmetro obrigatório para muitos recursos da AWS.
