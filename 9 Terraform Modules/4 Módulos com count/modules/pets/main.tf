@@ -1,16 +1,19 @@
+resource "random_pet" "pet01" {
+  count = var.num_instancias
+}
+
+resource "random_pet" "pet02" {
+  count = var.num_instancias
+}
+
 resource "local_file" "arquivo" {
-  content  = random_pet.pet01.id
-  filename = "${var.prefixo_arquivo}-arquivo.txt"
+  count    = var.num_instancias
+  content  = random_pet.pet01[count.index].id
+  filename = "${var.prefixo_arquivo}-arquivo-${count.index}.txt"
 }
 
 resource "local_file" "outro_arquivo" {
-  content  = random_pet.pet02.id
-  filename = "${var.prefixo_arquivo}-outro_arquivo.txt"
-}
-
-resource "random_pet" "pet01" {
-}
-
-
-resource "random_pet" "pet02" {
+  count    = var.num_instancias
+  content  = random_pet.pet02[count.index].id
+  filename = "${var.prefixo_arquivo}-outro_arquivo-${count.index}.txt"
 }

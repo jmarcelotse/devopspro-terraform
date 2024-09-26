@@ -1,7 +1,7 @@
 output "name_pet01" {
-  value = module.pets01.name_01.id
+  value = module.pet[*].name_pet01 // Ajuste conforme o nome correto
 }
 
 output "name_pet02" {
-  value = module.pets02.name_02.id
+  value = module.pet[*].name_pet02 // Ajuste conforme o nome correto
 }
